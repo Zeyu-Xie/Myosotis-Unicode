@@ -79,6 +79,27 @@
         </nav>
     </header>
 
+    <h2>Unicode Inquiry</h2>
+
+    <section class="select-view">
+        <select class="select-view-select">
+            <option value="CU" selected>Character to Unicode (A → 65)</option>
+            <option value="UC">Unicode to Character (65 → A)</option>
+        </select>
+        <section class="select-view-view option-CU">
+            <h3>Input</h3>
+            <input type="text" id="cu-input-view-input" placeholder="Character" maxlength="1">
+            <button id="cu-input-view">Inquiry</button>
+            <div id="cu-input-view-result"></div>
+        </section>
+        <section class="select-view-view option-UC">
+            <h3>Input</h3>
+            <input type="number" id="uc-input-view-input" placeholder="Code">
+            <button id="uc-input-view">Inquiry</button>
+            <div id="uc-input-view-result"></div>
+        </section>
+    </section>
+
     <h2>Unicode Characters List</h2>
 
     <section id="unicode-characters-list">
@@ -87,7 +108,7 @@
 
     <footer>
         <p>
-            ©️ <time class="current_year">[Current Year]</time> <a href="https://zeyu-xie.github.io/Acan"
+            ©️ <time class="current_year">[Current Year]</time> <a href="https://zeyu-xie.github.io"
                 class="author">[Author]</a>. All rights reserved.
         </p>
         <nav>

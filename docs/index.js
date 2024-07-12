@@ -1,5 +1,12 @@
 const _unicodeCharactersListSection = document.getElementById("unicode-characters-list");
 
+const _cu_input = document.getElementById("cu-input-view-input");
+const _cu_input_button = document.getElementById("cu-input-view");
+const _cu_result = document.getElementById("cu-input-view-result");
+const _uc_input = document.getElementById("uc-input-view-input");
+const _uc_input_button = document.getElementById("uc-input-view");
+const _uc_result = document.getElementById("uc-input-view-result");
+
 async function fetchDataAndRender(startIndex) {
     await fetch("./src/data.json")
         .then(response => response.json())
@@ -72,6 +79,27 @@ function lazyLoadData() {
             flag = true;
         }
     });
+}
+
+_cu_input_button.onclick = function () {
+    _cu_result.innerHTML = "";
+    const input = _cu_input.value;
+    const codePoint = input.codePointAt(0);
+    _cu_result.innerHTML = `
+        <h3>Result</h3>
+        <p>Code Point (DEC): <code>${codePoint}</code></p>
+        <p>Code Point (HEX): <code>U+${codePoint.toString(16).toUpperCase()}</code></p>
+    `;
+}
+
+_uc_input_button.onclick = function () {
+    _uc_result.innerHTML = "";
+    const input = parseInt(_uc_input.value, 10);
+    const chr = String.fromCodePoint(input);
+    _uc_result.innerHTML = `
+        <h3>Result</h3>
+        <p>Character: <code>${chr}</code></p>
+    `;
 }
 
 lazyLoadData();
